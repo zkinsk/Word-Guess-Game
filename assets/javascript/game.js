@@ -1,14 +1,7 @@
-var bands = [
-        Pink = ["P", "I", "N", "K", "-", "F", "L" ,"O", "Y", "D"],
-        Eagles = ["E", "A", "G", "L", "E", "S"],
-        Beatles = ["B", "E", "A", "T", "L", "E", "S"],
-        LedZep = ["L", "E", "D", "-", "Z", "E", "P", "P", "E", "L", "I", "N"],
-        test = ["B", "E", "E", "-", "E", "T", "S"]
-];
-var bobWords = ["FAN-BRUSH", "HAPPY-LITTLE-TREES", "EVERYONE-NEEDS-A-FRIEND", "BOB-ROSS", "TWO-INCH-BRUSH", "HAPPY-LITTLE-CLOUDS", "PRE-STRETCHED-CANVAS", 
-                "PEA-POD", "SAP-GREEN"]
+var bobWords = ["FAN BRUSH", "HAPPY LITTLE TREES", "EVERYONE NEEDS A FRIEND", "BOB ROSS", "TWO INCH BRUSH", "HAPPY LITTLE CLOUDS", "PRE-STRETCHED CANVAS", 
+                "PEA POD", "SAP GREEN", "ROLL OF PAINT", "NEED THE DARK TO SHOW THE LIGHT", "CARROT NOISE", "HAPPY ACCIDENTS", "HAPPY PAINTINGS", "LITTLE FOOTY HILLS", 
+                "YOUR WORLD", "BIG OLD MOUNTAIN" ];
 
-var bandNum = (Math.floor(Math.random() * bands.length)); //picks a random array index number from the bands list
 var userGuesses = []; //stores the players guesses
 var guessLeft = 6; //number of guesses the player starts with
 var currentWord = []; //function CurrentWordInitial Populates it with blank spaces base on length of guess word array
@@ -42,12 +35,18 @@ function reStartGame(){
     for ( let i = 0; i < (bWordArr.length); i++ ){ //fills guessing word with blanks
         currentWord.push (" _ ");
     }
-    document.getElementById("currentWord1").innerHTML = currentWord.join(" "); //automatically fills in dashes in guess blanks
+    // document.getElementById("currentWord1").innerHTML = currentWord.join(" "); //automatically fills in dashes in guess blanks
     for ( i = 0; i < (bWordArr.length) ; i++ ){
         if ("-" === bWordArr[i]){
             currentWord[i] = "-";
         }
     };
+    for ( i = 0; i < (bWordArr.length) ; i++ ){
+        if (" " === bWordArr[i]){
+            currentWord[i] = "&nbsp";
+        }
+    };
+
     document.getElementById("wins").innerHTML = wins; //writes wins to HTML page
     document.getElementById("losses").innerHTML = losses; //writes losses to HTML page
     document.getElementById("currentWord1").innerHTML = currentWord.join(" "); //writes out blanks on HTML page
@@ -80,6 +79,9 @@ function addLetter(gL){  //adds guessed letters to the guessed letters line
 
 
 function youWin() { //function for showing winning dialoge and pictures
+    document.onkeyup = function (e) {
+        e.preventDefault();		
+      }
     document.getElementById("spaceBar").innerHTML = "YOU WIN!!!!"
     // setTimeout(function(){ alert("You Win"); }, 300);
     wins ++;
@@ -88,12 +90,14 @@ function youWin() { //function for showing winning dialoge and pictures
 };
 
 function youLose() {
-    for ( i = 0; i < (bWordArr.length) ; i++ ){ //runs a loop for comparing guessed letter to word array
-        aL = bWordArr[i]; 
-        currentWord[i] = aL;
-    }
-     document.getElementById("currentWord1").innerHTML = currentWord.join(" ");
-     setTimeout(function(){ reStartGame(); }, 2000); //delays re-starting the game for a short while //updating array in HTML
+    document.onkeyup = function (e) {
+        e.preventDefault();		
+      }
+    document.getElementById("spaceBar").innerHTML = "You Lose!";
+    losses ++;
+    document.getElementById("losses").innerHTML = losses;
+    document.getElementById("currentWord1").innerHTML = bWordString;
+     setTimeout(function(){ reStartGame(); }, 3000); //delays re-starting the game for a short while //updating array in HTML
 
 }
 
@@ -127,10 +131,9 @@ function playGame(){
         if (currentWord.indexOf (" _ ") === -1) {
             youWin();
         }else if (guessLeft <= 0){
-            document.getElementById("spaceBar").innerHTML = "You Lose!";
-            losses ++;
-            document.getElementById("losses").innerHTML = losses;
-            setTimeout(function(){ youLose(); }, 300);
+
+            // setTimeout(function(){ youLose(); }, 300);
+            youLose()
             
         };
 
