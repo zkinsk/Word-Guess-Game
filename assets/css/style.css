@@ -1,0 +1,89 @@
+/* font-family: 'Open Sans', sans-serif; */
+
+h1{
+    font-family: 'Ultra', serif;
+}
+
+body, p, h2, h3, h4{
+    font-family: 'Slabo 13px', serif;
+    color: white;
+}
+body {
+    background-image: url("../images/escheresque_ste.png")
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    font-variant: small-caps;
+    background-image: url("../images/bob-ross_header-small.jpg");
+    /* background-color: lightgrey; */
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header h1 {
+    text-align: center;
+    display:block;
+    position: absolute;
+    color: white;
+    background-color: black;
+    mix-blend-mode: darken;
+    padding: 15px;
+    animation: bobRoss 15s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+    @keyframes bobRoss {
+        0%   {top: 0px; left: 300px;}
+
+        100% {top: 300px; left: 300px;}
+    }
+.gameArea {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: lightgrey; */
+}
+.gameArea h3 {
+    text-align: center;
+}
+.gameArea h4 {
+    text-align: center;
+}
+.gameArea p {
+    margin-left: 20%;
+}
+
+#wins {
+    color: greenyellow;
+    font-weight: bold;
+    
+}
+#losses {
+    color: red;
+    font-weight: bold;
+    
+}
+#lettersChosen {
+    color: red;
+    font-weight: bold;
+}
+#currentWord1 {
+    color: rgb(235, 116, 5);
+    font-weight: bold;
+    font-kerning: none;
+
+}
+#gLeft {
+    color: greenyellow;
+    font-weight: bold;
+    
+}
+
+#spaceBar {
+    color: greenyellow;
+    font-weight: bold;
+}
