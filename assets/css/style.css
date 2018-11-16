@@ -16,20 +16,46 @@ body {
     position: relative;
     text-align: center;
     font-variant: small-caps;
-    background-image: url("../images/bob-ross_header-small.jpg");
+    /* background-image: url("../images/bob-ross_header-small.jpg"); */
     /* background-color: lightgrey; */
     background-repeat: no-repeat;
     background-position: top center;
-    height: 400px;
+    max-height: 350px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    /* border: 2px black solid; */
 }
+#bobImg {
+    transition: height 4s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 640px;
+    /* animation: bobImg 4s ;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards; */
+}
+    @keyframes bobImg {
+        0%   {height: 600px; }
+
+        100% {height: 350px;}
+    /* max-width: 100%; */
+}
+
 .header h1 {
     text-align: center;
-    display:block;
+    /* display:block; */
+    color: black;
+    background-color: white;
+    /* font-size: 300%; */
+    /* position: fixed; */
+    transition-property: background-color, color;
+    transition-duration: 4s;
+
     position: absolute;
-    color: white;
-    background-color: black;
+    /* color: white; */
+    /* background-color: black; */
     mix-blend-mode: darken;
     padding: 15px;
     animation: bobRoss 15s infinite;
@@ -37,23 +63,27 @@ body {
     animation-timing-function: ease-in-out;
 }
     @keyframes bobRoss {
-        0%   {top: 0px; left: 300px;}
+        0%   {top: 1%; left: 30%;}
 
-        100% {top: 300px; left: 300px;}
+        100% {top: 65%; left: 30%;}
     }
-.gameArea {
+#gameArea {
+    /* transition: display 4s; */
+    opacity: 0;
+    transition: opacity 5s;
+    transition-timing-function: ease-in;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     /* background-color: lightgrey; */
 }
-.gameArea h3 {
+#gameArea h3 {
     text-align: center;
 }
-.gameArea h4 {
+#gameArea h4 {
     text-align: center;
 }
-.gameArea p {
+#gameArea p {
     margin-left: 20%;
 }
 
@@ -74,7 +104,7 @@ body {
 #currentWord1 {
     color: rgb(235, 116, 5);
     font-weight: bold;
-    font-kerning: none;
+    font-family: 'Roboto Mono', monospace;
 
 }
 #gLeft {

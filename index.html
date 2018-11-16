@@ -3,18 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hang Man Game</title>
+    <title>Bob Ross Word Guess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Slabo+13px|Ultra" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Slabo+13px|Ultra|Roboto+Mono" rel="stylesheet">
+ 
     
 </head>
-<body>
-    <div class="header"><h1>Bob Ross Word Guess!</h1></div>
+<body onload="startGame()">
+    <div class="header">
+        <img id="bobImg" src="assets/images/bob-ross_header-small.jpg">
+        <h1 id="bobFloat">Bob Ross Word Guess!</h1>
+    
+    </div>
 
 
     <br>
-    <div class="gameArea">
+    <div id="gameArea">
         <h3 id="spaceBar"></h3>
         <h4 id="currentWord1" style="letter-spacing: 5px;">Text!</h4>
         <br>

@@ -1,7 +1,7 @@
 /////VARIABLES!!!!!!///////
 var bobWords = ["FAN BRUSH", "HAPPY LITTLE TREES", "EVERYONE NEEDS A FRIEND", "BOB ROSS", "TWO INCH BRUSH", "HAPPY LITTLE CLOUDS", "PRE-STRETCHED CANVAS", 
                 "PEA POD", "SAP GREEN", "ROLL OF PAINT", "NEED THE DARK TO SHOW THE LIGHT", "CARROT NOISE", "HAPPY ACCIDENTS", "HAPPY PAINTINGS", "LITTLE FOOTY HILLS", 
-                "YOUR WORLD", "BIG OLD MOUNTAIN" ];
+                "YOUR WORLD", "BIG OLD MOUNTAIN", "LETS GET CRAZY" ];
 
 var userGuesses = []; //stores the players guesses
 var guessLeft = 6; //number of guesses the player starts with
@@ -9,20 +9,33 @@ var currentWord = []; //function CurrentWordInitial Populates it with blank spac
 var losses = 0;
 var wins = 0;
 var gameOn = false;
+var bWordString;
+var bWordArr = [];
 
 ///START EVERYTHING!!!!/////
 
-startGame();
+// startGame();
 
 //FUNCTIONS!!!!////////////
 
 function startGame(){
+    document.getElementById("gameArea").style.opacity = "0";
+    document.getElementById("bobFloat").innerHTML = "PRESS SPACEBAR TO BEGIN!";
+    // document.getElementById("gameArea").style.display = "none";
     document.getElementById("spaceBar").innerHTML = "Press Space Bar To BEGIN!";
     currentWordInitial();
     document.onkeyup = function(event){
         if (event.keyCode === 32){ //tests for spacebar to be pressed
             document.getElementById("spaceBar").innerHTML = "Start Guessing!"; //after spacebar is pressed, game on!
             playGame();
+            document.getElementById("bobFloat").innerHTML = "Bob Ross Word Guess!";
+            document.getElementById("bobImg").style.height="350px";
+            // document.getElementById("gameArea").style.display = "block";
+            document.getElementById("gameArea").style.opacity = "1";
+            document.getElementById("bobFloat").style.position = "absolute";
+            document.getElementById("bobFloat").style.color = "white";
+            document.getElementById("bobFloat").style.background = "black";
+            // document.getElementById("bobFloat").style.mix-blend-mode = "darken";
         }
     }
 };
@@ -41,13 +54,15 @@ function currentWordInitial () {
     for ( let i = 0; i < (bWordArr.length); i++ ){ //fills guessing word with blanks
         currentWord.push (" _ ");
     }
+    console.log(currentWord)
+    console.log(typeof currentWord)
     // document.getElementById("currentWord1").innerHTML = currentWord.join(" "); //automatically fills in dashes in guess blanks
-    for ( i = 0; i < (bWordArr.length) ; i++ ){
+    for ( let i = 0; i < (bWordArr.length) ; i++ ){
         if ("-" === bWordArr[i]){
             currentWord[i] = "-";
         }
     };
-    for ( i = 0; i < (bWordArr.length) ; i++ ){
+    for ( let i = 0; i < (bWordArr.length) ; i++ ){
         if (" " === bWordArr[i]){
             currentWord[i] = "&nbsp";
         }
@@ -67,6 +82,7 @@ function currentWordInitial () {
 
 function reStartGame(){
     gameOn = true;
+    dimBob(1);
     currentWordInitial();
     playGame();
 };
@@ -97,6 +113,12 @@ function youWin() {
     document.getElementById("wins").innerHTML = wins;
     setTimeout(function(){ reStartGame(); }, 2000); //delays re-starting the game so we can see our letter choice and the final word
 };
+function dimBob (bL){
+    var element = document.getElementById('bobImg');
+    element.style.opacity = bL;
+    element.style.filter  = "alpha(opacity=" + bL + ")";
+
+};
 
 //YOU LOSE -  Shows complete word and re-starts game
 function youLose() {
@@ -109,7 +131,7 @@ function youLose() {
     document.getElementById("currentWord1").innerHTML = bWordString;
      setTimeout(function(){ reStartGame(); }, 3000); //delays re-starting the game for a short while //updating array in HTML
 
-}
+};
 
 function playGame(){  
     // document.getElementById("spaceBar").innerHTML = "Start Guessing!";
@@ -120,7 +142,6 @@ function playGame(){
         if (event.keyCode < 65 || event.keyCode > 90){//checks to see if player entered a letter
             // alert("Pick a letter!");
             document.getElementById("spaceBar").innerHTML = "PICK A LETTER!"
-        
         }
         else{
                 //checks to see if the players guess has been used before and if it matches a letter in the chosen word
@@ -132,23 +153,19 @@ function playGame(){
                 addLetter(userGuess); //re-prints the array of chosen letters
                 guessLeft --; //subtracts a guess
                 document.getElementById("gLeft").innerHTML = guessLeft; //udates guesses left HTML
+                dimBob(guessLeft/6);
             
             }else {
                 // alert ("you have already chosen that letter");
                 document.getElementById("spaceBar").innerHTML = "You have already chosen that letter! Try again!" //I need to change this to a modal or something
             };
         };
-
-        if (currentWord.indexOf (" _ ") === -1) {
+        console.log("process-check");
+        if ( (currentWord.includes (" _ ")) === false) {
             youWin();
         }else if (guessLeft <= 0){
-
-            // setTimeout(function(){ youLose(); }, 300);
-            youLose()
-            
+            youLose();
         };
-
-
     };
 };
 
