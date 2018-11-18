@@ -16,7 +16,7 @@ var bWordArr = [];
 var bWordPriorIndex = [];
 var bWordIndex;
 var startAudio = new Audio("assets/sounds/If this is your first time with us....mp3");
-var remixAudio = new Audio("assets/sounds/Bob Ross Remixed  Happy Little Clouds  PBS Digital Studios.mp3");
+var remixAudio = new Audio("Bob Ross Remixed  Happy Little Clouds  PBS Digital Studios.m4a");
 var loseAudio = new Audio("assets/sounds/We dont make mistakes here....mp3");
 var winAudio;
 // winAudio.addEventListener ("ended", alert("sound has ended!"));
