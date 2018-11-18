@@ -5,28 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bob Ross Word Guess</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Slabo+13px|Ultra|Roboto+Mono" rel="stylesheet">
- 
     
 </head>
 <body onload="startGame()">
     <div class="header">
         <img id="bobImg" src="assets/images/bob-ross_header-small.jpg">
-        <h1 id="bobFloat">Bob Ross Word Guess!</h1>
-    
+        <h1 id="bobFloat"><span id="spaceBarPress">PRESS SPACE BAR TO BEGIN!</span><span id="bobRoss">Bob Ross Word Guess!</span></h1>
+    </div>
+    <div id="imageBox">
+        <img id="gameImage" src="assets/images/sad_tree.jpg">        
     </div>
 
-
-    <br>
     <div id="gameArea">
-        <h3 id="spaceBar"></h3>
-        <h4 id="currentWord1" style="letter-spacing: 5px;">Text!</h4>
+        <h5 id="spaceBar"></h5>
+        <h5 id="currentWord1" style="letter-spacing: 5px;">Text!</h5>
         <br>
-        <p>Letters chosen so far: &nbsp<span id="lettersChosen"></span></p>
-        <p>Guesses Left: &nbsp<span id="gLeft"></span></p>
-        <p>WINS: &nbsp<span id="wins"> </span></p>
-        <p>LOSSES: &nbsp<span id="losses"> </span></p>
+        <div id="gameStats">
+            <p>Letters chosen so far: &nbsp<span id="lettersChosen"></span></p>
+            <p>Guesses Left: &nbsp<span id="gLeft"></span></p>
+            <p>WINS: &nbsp<span id="wins"> </span></p>
+            <p>LOSSES: &nbsp<span id="losses"> </span></p>
+            <p class="remixButtons">Press a button to enjoy a Bob Ross remix </p>
+            <button type="button" onclick="playRemix()"class="btn btn-outline-primary btn-sm"><i class="far fa-play-circle"></i></button>
+            <button type="button" onclick="pauseRemix()" class="btn btn-outline-danger btn-sm"><i class="far fa-pause-circle"></i></button>
+
+
+
+
+
+
+        </div>
+
 
 
     </div>

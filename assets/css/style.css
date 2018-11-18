@@ -4,7 +4,7 @@ h1{
     font-family: 'Ultra', serif;
 }
 
-body, p, h2, h3, h4{
+body, p, h2, h3, h4, h5{
     font-family: 'Slabo 13px', serif;
     color: white;
 }
@@ -32,6 +32,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     height: 640px;
+    z-index: -2;
     /* animation: bobImg 4s ;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards; */
@@ -43,20 +44,23 @@ body {
     /* max-width: 100%; */
 }
 
-.header h1 {
+#bobFloat {
+    font-family: 'Ultra', serif;
+    /* width: 700px; */
     text-align: center;
     /* display:block; */
-    color: black;
-    background-color: white;
+    color: red;
+    /* background-color: white; */
     /* font-size: 300%; */
     /* position: fixed; */
-    transition-property: background-color, color;
+    transition-property: all;
     transition-duration: 4s;
+    margin-left: -20px;
 
     position: absolute;
     /* color: white; */
     /* background-color: black; */
-    mix-blend-mode: darken;
+    /* mix-blend-mode: darken; */
     padding: 15px;
     animation: bobRoss 15s infinite;
     animation-direction: alternate;
@@ -67,24 +71,72 @@ body {
 
         100% {top: 65%; left: 30%;}
     }
+
+#spaceBarPress { 
+    transition: all 2s ease-in-out;
+    display: block;
+    opacity: 1;
+    height: auto;
+    width: auto;
+
+}
+#bobRoss {
+    transition: all 1s ease-in-out;
+    display: block;
+    opacity: 0;
+    height: 0;
+    width: 0;
+
+
+}
+#imageBox {
+
+    transition: all 0.5s;
+    height: 40px;
+    width: 100%;
+    margin-left: auto;  
+    margin-right: auto;
+}
+#gameImage {
+    position: relative;
+    transition: all 0.5s;
+    visibility: hidden;
+    display: block;
+    max-height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    z-index: -1;
+    top: -150px;
+}
+#gameStats {
+    /* border: yellow 2px solid; */
+    margin-left: 20%;
+}
+
 #gameArea {
     /* transition: display 4s; */
+    position: relative;
     opacity: 0;
     transition: opacity 5s;
     transition-timing-function: ease-in;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+    z-index: 5;
+    /* border: white 2px solid; */
     /* background-color: lightgrey; */
-}
-#gameArea h3 {
-    text-align: center;
 }
 #gameArea h4 {
     text-align: center;
 }
-#gameArea p {
-    margin-left: 20%;
+#gameArea h5 {
+    text-align: center;
+}
+
+.remixButtons {
+    float: left;
+    margin-right: 5px;
 }
 
 #wins {
@@ -116,4 +168,7 @@ body {
 #spaceBar {
     color: greenyellow;
     font-weight: bold;
+}
+#player {
+    clear: both;
 }
