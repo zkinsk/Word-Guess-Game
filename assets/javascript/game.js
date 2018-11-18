@@ -3,7 +3,7 @@ var bobWords = ["FAN BRUSH", "HAPPY LITTLE TREES", "EVERYONE NEEDS A FRIEND", "B
                 "PEA POD", "SAP GREEN", "ROLL OF PAINT", "NEED THE DARK TO SHOW THE LIGHT", "CARROT NOISE", "HAPPY ACCIDENTS", "HAPPY PAINTINGS", "LITTLE FOOTY HILLS", 
                 "THIS IS YOUR WORLD", "BIG OLD MOUNTAIN", "LETS GET CRAZY", "PRACTICE", "BELIEVE HERE", "YOU CAN DO IT", "NO LIMITS HERE", "YOU CAN DO IT", "THINK LIKE WATER",
                 "FREEDOM ON THE CANVAS", "EVERY DAY IS A GOOD DAY WHEN YOU PAINT" ];
-var winImages = ["ls-1", "ls-2", "ls-3", "ls-4", "ls-5", "ls-6", "ls-7", "ls-8", "ls-9", "bobsparkle-1.jpg"]
+var winImages = ["ls-1", "ls-2", "ls-3", "ls-4", "ls-5", "ls-6", "ls-7", "ls-8", "ls-9", "bob-sparkle"]
 var winSounds = ["Anything-Make-You-Happy.m4a", "Enjoy-my-life.m4a", "Enjoy-What-You-Do.m4a", "Feel-Good.m4a", "happy-person.m4a", "needs-friend.m4a", "painting-happy.m4a", "sparkling-shiny.m4a"]
 var userGuesses = []; //stores the players guesses
 var guessLeft; //number of guesses the player starts with
@@ -120,7 +120,7 @@ function reStartGame(){
     document.getElementById("gameImage").style.visiblity = "hidden";
     document.getElementById("gameStats").style.opacity = "1";
     document.getElementById("currentWord1").style.color = "rgb(235, 116, 5)";
-    document.getElementById("currentWord1").style.fontSize = "initial";
+    document.getElementById("currentWord1").style.fontSize = "18px";
 
 };
 
@@ -148,7 +148,7 @@ function youWin() {
     dimBob(0);
     document.getElementById("currentWord1").innerHTML = bWordString;
     document.getElementById("currentWord1").style.color = "red";
-    document.getElementById("currentWord1").style.fontSize = "150%";
+    document.getElementById("currentWord1").style.fontSize = "200%";
     document.getElementById("gameStats").style.opacity = "0";
     document.getElementById("gameStats").style.transition = "all 0.1s";
     document.getElementById("gameImage").style.visibility="visible";
@@ -196,7 +196,7 @@ function youLose() {
     document.getElementById("losses").innerHTML = losses;
     document.getElementById("currentWord1").innerHTML = bWordString;
     document.getElementById("currentWord1").style.color = "red";
-    document.getElementById("currentWord1").style.fontSize = "150%";
+    document.getElementById("currentWord1").style.fontSize = "200%";
      setTimeout(function(){ reStartGame(); }, 4000); //delays re-starting the game for a short while //updating array in HTML
 
 };

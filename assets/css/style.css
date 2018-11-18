@@ -16,8 +16,6 @@ body {
     position: relative;
     text-align: center;
     font-variant: small-caps;
-    /* background-image: url("../images/bob-ross_header-small.jpg"); */
-    /* background-color: lightgrey; */
     background-repeat: no-repeat;
     background-position: top center;
     max-height: 350px;
@@ -135,7 +133,7 @@ body {
 }
 
 .remixButtons {
-    float: left;
+    /* float: left; */
     margin-right: 5px;
 }
 
