@@ -55,6 +55,7 @@
                     $(play).html('<i class="glyphicon glyphicon-play"></i>');
                     $(play).click(function () {
                         song.play();
+                        $('.audio').prop("volume", 0.1);
                     });
                 }
                 if (!song.paused || toggle === 'pause') {
@@ -288,7 +289,7 @@
                 'min': 0,
                 'max': 1,
                 'step': 1 / 100,
-                'value': 1
+                'value': 0.25
             });
 
             volume.slide = function () {

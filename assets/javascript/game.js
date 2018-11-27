@@ -18,8 +18,6 @@ var bWordIndex;
 var startAudio = new Audio("assets/sounds/If this is your first time with us....mp3");
 var remixAudio = new Audio("Bob Ross Remixed  Happy Little Clouds  PBS Digital Studios.m4a");
 var loseAudio = new Audio("assets/sounds/We dont make mistakes here....mp3");
-var winAudio;
-// winAudio.addEventListener ("ended", alert("sound has ended!"));
 var reStartAudio = new Audio("assets/sounds/I tell you what lets have one more.mp3");
 
 
@@ -156,7 +154,7 @@ function youWin() {
     let w = (Math.floor(Math.random() * winImages.length));
     document.getElementById("gameImage").src="assets/images/" + winImages[w] + ".jpg";
     let wa = (Math.floor(Math.random() * winSounds.length));
-    var winAudio = new Audio("assets/sounds/" + winSounds[wa]);
+    let winAudio = new Audio("assets/sounds/" + winSounds[wa]);
     winAudio.play();
     winAudio.onended = function (){
         setTimeout(function(){ reStartGame(); }, 500); //delays re-starting the game so we can see our letter choice and the final word
